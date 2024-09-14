@@ -1,6 +1,8 @@
 # CRUD DATABASE, TRY CATCH EXCEPTION, THROWS EXCEPTION, CUSTOM EXCEPTION
 ## Crud Database
-CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar dalam pengolahan data di database khususnya pada database yang relasional. CRUD dapat diterapkan secara luas di berbagai jenis database seperti MySQL, PostgreeSQL, MongoDB, dan sejenisnya. Namun, pada tugas ini kita menerapkan pada jenis database PostgreeSQL. Selain itu, CRUD adalah fondasi dasar dalam pengembangan sistem atau aplikasi yang berhubungan dengan pengolahan data. Ini karena hampir semua aplikasi yang menggunakan database melibatkan operasi CRUD dalam penggunaannya.
+CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar dalam pengolahan data di database khususnya pada database yang relasional. CRUD dapat diterapkan secara luas di berbagai jenis database seperti MySQL, PostgreeSQL, MongoDB, dan sejenisnya. Namun, pada tugas ini kita menerapkan pada jenis database PostgreeSQL. Selain itu, CRUD adalah fondasi dasar dalam pengembangan sistem atau aplikasi yang berhubungan dengan pengolahan data. Ini karena hampir semua aplikasi yang menggunakan database melibatkan operasi CRUD dalam penggunaannya.<br>
+*File crud diatas adalah code untuk menjalankan program*
+
 ## Fungsi Crud
 - Create -> Pembuatan database dan juga aktivitas memasukkan data baru ke dalam database.
 - Read -> Menampilkan data atau record yang tersimpan dalam database.
@@ -9,8 +11,7 @@ CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar
 ## Program yang Digunakan
 - Bahasa Pemrogaraman : Java
 - Database : PostgreeSQL
-<br> file crud diatas adalah code untuk menjalankan program
-
+  
 # Try Catch Exception
 ## Pengertian Exception 
 Exceptions adalah objek yang mewakili kesalahan ketika menjalankan kode program. Exceptions dapat dipakai untuk menghentikan program secara terkendali dan memberikan pesan kesalahan kepada user.
