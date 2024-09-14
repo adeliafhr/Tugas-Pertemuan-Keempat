@@ -9,6 +9,7 @@ CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar
 ## Program yang Digunakan
 - Bahasa Pemrogaraman : Java
 - Database : PostgreeSQL
+<br> file crud diatas adalah code untuk menjalankan program
 
 # Try Catch Exception
 ## Pengertian Exception 
