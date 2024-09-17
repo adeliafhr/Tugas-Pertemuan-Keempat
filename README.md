@@ -7,10 +7,8 @@ CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar
 - Read -> Menampilkan data atau record yang tersimpan dalam database.
 - Update -> Mengupdate atau memperbarui data yang sudah ada dalam database.
 - Delete -> Menghapus database maupun data atau record yang berada di database.
-## Program yang Digunakan
-- Bahasa Pemrogaraman : Java
-- Database : PostgreeSQL
-<br><br>Jika program pada file crud.java di jalankan maka akan keluar output seperti ini :
+
+<br>Jika program pada file crud.java di jalankan maka akan keluar output seperti ini :
 <pre>
    MENU UTAMA 
 1. Input Data dalam tabel
