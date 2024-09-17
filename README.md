@@ -1,6 +1,6 @@
 # CRUD DATABASE, TRY CATCH EXCEPTION, THROWS EXCEPTION, CUSTOM EXCEPTION
 # 1. Crud Database
-CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar dalam pengolahan data di database khususnya pada database yang relasional. CRUD dapat diterapkan secara luas di berbagai jenis database seperti MySQL, PostgreeSQL, MongoDB, dan sejenisnya. Namun, pada tugas ini kita menerapkan pada jenis database PostgreeSQL. Selain itu, CRUD adalah fondasi dasar dalam pengembangan sistem atau aplikasi yang berhubungan dengan pengolahan data. Ini karena hampir semua aplikasi yang menggunakan database melibatkan operasi CRUD dalam penggunaannya.<br>
+CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar dalam pengolahan data di database khususnya pada database yang relasional. CRUD dapat diterapkan secara luas di berbagai jenis database seperti MySQL, PostgreeSQL, MongoDB, dan sejenisnya. Namun, pada tugas ini kita menerapkan pada jenis database PostgreeSQL.<br>
 
 ## Fungsi Crud
 - Create -> Pembuatan database dan juga aktivitas memasukkan data baru ke dalam database.
@@ -31,10 +31,8 @@ Struktur ini terdiri dari dua blok kode, yaitu blok try dan blok catch.
 Exceptions adalah objek yang mewakili kesalahan ketika menjalankan kode program. Exceptions dapat dipakai untuk menghentikan program secara terkendali dan memberikan pesan kesalahan kepada user.
 ## Jenis Exception dalam Bahasa Java
 - ArithmeticException : Terjadi kesalahan aritmatika, seperti pembagian dengan nol.
-- NullPointerException : Terjadi kesalahan karena mencoba mengakses objek yang null.
 - ArrayIndexOutOfBoundsException : Terjadi kesalahan karena mencoba mengakses elemen array di luar batas.
-- NumberFormatException : Terjadi kesalahan karena mencoba mengubah string ke tipe data numerik yang tidak valid.
-- FileNotFoundException : Terjadi kesalahan karena mencoba membuka file yang tidak ada.
+
 ## Berikut adalah source code dari try catch 
 <pre>
 ```java
@@ -63,10 +61,8 @@ Dalam kode ini kita buat objek pembagian dari class BelajarException untuk meman
 Jika terjadi kesalahan aritmetika (seperti pembagian dengan nol), program mencetak "Error Aritmetik". Namun, dalam kasus ini, kesalahan yang terjadi adalah ArrayIndexOutOfBoundsException karena kita mencoba mengakses indeks yang tidak ada di array. Program akan mencetak "Error kapasitas array melebihi batas".
 
 # 3. Throws Exception
-Throws adalah keyword yang digunakan dalam deklarasi metode untuk menyatakan bahwa metode tersebut dapat melempar (throw) satu atau lebih jenis exception. Ini memberi tahu pemanggil metode bahwa mereka perlu menangani exception tersebut, baik dengan menangkapnya menggunakan blok try-catch atau dengan meneruskan exception ke metode yang lebih tinggi dalam tumpukan pemanggilan.
-## Jenis Exception
-- Checked Exception: Exception yang harus ditangani atau dinyatakan dengan throws. Contoh: IOException, SQLException.
-- Unchecked Exception: Exception yang tidak perlu ditangani secara eksplisit. Contoh: ArithmeticException, NullPointerException. <br>
+Throws adalah keyword yang digunakan dalam deklarasi metode untuk menyatakan bahwa metode tersebut dapat melempar (throw) satu atau lebih jenis exception. Ini memberi tahu pemanggil metode bahwa mereka perlu menangani exception tersebut, baik dengan menangkapnya menggunakan blok try-catch.
+
 ## Berikut adalah source code dari throws exception
 <pre>
    public void bagiBilangan(int a, int b) throws ArithmeticException {
@@ -76,7 +72,7 @@ Throws adalah keyword yang digunakan dalam deklarasi metode untuk menyatakan bah
 </pre>
 Dalam kode ini terdapat metode yang melakukan pembagian bilangan dimana metode ini menerima 2 parameter bertipe integer yaitu int a dan int b. Metode ini melakukan pembagian a dengan b dan menyimpan hasilnya dalam variabel bil. Jika b adalah nol, maka akan terjadi kesalahan (exception) aritmetika. Namun pada metode ini tidak ada penanganannya karena hanya menggunakan metode throws yang artinya kesalahan hanya di lempar saja tanpa di tangani. Meski kita tidak menangkapnya di sini, metode ini menyatakan bahwa bisa terjadi ArithmeticException.
 
-#4. Custom Exception
+# 4. Custom Exception
 Custom exception adalah exception yang dibuat oleh programmer sendiri dengan memperluas kelas Exception atau RuntimeException. Ini memungkinkan pengembang untuk mendefinisikan jenis kesalahan spesifik yang relevan dengan aplikasi mereka.
 ## Berikut adalah source code dari custom exception
 <pre> 
