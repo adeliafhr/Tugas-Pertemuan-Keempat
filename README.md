@@ -1,12 +1,19 @@
 # CRUD DATABASE, TRY CATCH EXCEPTION, THROWS EXCEPTION, CUSTOM EXCEPTION
+---
+## Table Of Contents
+- [Crud Database](#Crud)
+- [Try Catch Exception](#Exception)
+- [Throws Exception](#Exception)
+- [Custom Exception](#custom-exception)
+---
 # 1. Crud Database
-CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar dalam pengolahan data di database khususnya pada database yang relasional. CRUD dapat diterapkan secara luas di berbagai jenis database seperti MySQL, PostgreeSQL, MongoDB, dan sejenisnya. Namun, pada tugas ini kita menerapkan pada jenis database PostgreeSQL.<br>
+CRUD adalah singkatan dari Create, Read, Update, dan Delete, yaitu operasi dasar dalam pengolahan data di database.<br>
 
 ## Fungsi Crud
-- Create -> Pembuatan database dan juga aktivitas memasukkan data baru ke dalam database.
-- Read -> Menampilkan data atau record yang tersimpan dalam database.
-- Update -> Mengupdate atau memperbarui data yang sudah ada dalam database.
-- Delete -> Menghapus database maupun data atau record yang berada di database.
+- Create -> Memasukkan data baru ke dalam database.
+- Read -> Menampilkan data yang tersimpan dalam database.
+- Update -> Mengupdate data yang sudah ada dalam database.
+- Delete -> Menghapus data yang ada pada database.
 
 <br>Jika program pada file crud.java di jalankan maka akan keluar output seperti ini :
 <pre>
@@ -33,30 +40,23 @@ Exceptions adalah objek yang mewakili kesalahan ketika menjalankan kode program.
 
 ## Berikut adalah source code dari try catch 
 <pre>
-```java
-
  public static void main(String[] args) {
         BelajarException pembagian = new BelajarException();
-        String huruf [] = {"a","b","c"};
         try{
-            pembagian.bagiBilangan(5, 5);
-            System.out.println(huruf[5]);
+            pembagian.bagiBilangan(5, 0);
         }catch (ArithmeticException e){
             System.out.println("Error Aritmetik");
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("Error kapasitas array melebihi batas");
         }
     }
 </pre>
 Output : 
 <pre>
-Hasil: 1
-Error kapasitas array melebihi batas
+Error Aritmetik
 </pre>
-Dalam kode ini kita buat objek pembagian dari class BelajarException untuk memanggil metode yang ada di dalamnya dan buat array huruf yang berisi 3 elemen yaitu “a”, “b” , “c”
-- Blok Try <br> Dalam blok try, kita memanggil metode pembagian untuk mencoba program yang akan dijalankan yaitu memasukan angka 5 dibagi dengan 5 hasilnya adalah 1 dan ini akan di cetak. Kita juga mencoba untuk mencetak elemen ke-6 dari array (huruf[5]). Namun, array tersebut hanya memiliki tiga elemen (indeks 0, 1, dan 2), jadi ini akan menyebabkan kesalahan.
+Dalam kode ini kita buat objek pembagian dari class BelajarException untuk memanggil metode yang ada di dalamnya
+- Blok Try <br> Dalam blok try, kita memanggil metode pembagian untuk mencoba program yang akan dijalankan yaitu memasukan angka 5 dibagi dengan 0. Namun, semua bilangan yang dibagi dengan 0 tidak bisa, maka ini akan menyebabkan kesalahan.
 - Blok Catch <br> Jika terjadi kesalahan pada blok try maka catch akan menangkap kesalahan tersebut : <br>
-Jika terjadi kesalahan aritmetika (seperti pembagian dengan nol), program mencetak "Error Aritmetik". Namun, dalam kasus ini, kesalahan yang terjadi adalah ArrayIndexOutOfBoundsException karena kita mencoba mengakses indeks yang tidak ada di array. Program akan mencetak "Error kapasitas array melebihi batas".
+Pada kasus ini kesalahan yang terjadi adalah dikarenakan angka 5 tidak bisa dibagi dengan 0  maka program akan mencetak "Error Aritmetik".
 
 # 3. Throws Exception
 Throws adalah keyword yang digunakan dalam deklarasi metode untuk menyatakan bahwa metode tersebut dapat melempar (throw) satu atau lebih jenis exception. Ini memberi tahu pemanggil metode bahwa mereka perlu menangani exception tersebut, baik dengan menangkapnya menggunakan blok try-catch.
@@ -71,28 +71,37 @@ Throws adalah keyword yang digunakan dalam deklarasi metode untuk menyatakan bah
 Dalam kode ini terdapat metode yang melakukan pembagian bilangan dimana metode ini menerima 2 parameter bertipe integer yaitu int a dan int b. Metode ini melakukan pembagian a dengan b dan menyimpan hasilnya dalam variabel bil. Jika b adalah nol, maka akan terjadi kesalahan (exception) aritmetika. Namun pada metode ini tidak ada penanganannya karena hanya menggunakan metode throws yang artinya kesalahan hanya di lempar saja tanpa di tangani. Meski kita tidak menangkapnya di sini, metode ini menyatakan bahwa bisa terjadi ArithmeticException.
 
 # 4. Custom Exception
-Custom exception adalah exception yang dibuat oleh programmer sendiri dengan memperluas kelas Exception atau RuntimeException. Ini memungkinkan pengembang untuk mendefinisikan jenis kesalahan spesifik yang relevan dengan aplikasi mereka.
+Custom exception adalah exception yang dibuat oleh programmer sendiri dengan memperluas kelas Exception.
 ## Berikut adalah source code dari custom exception
 <pre> 
-  public class AdelException extends Exception {
+  public class AdelException extends ArithmeticException {
     public AdelException(String s){
         super(s);
     }
+    
+    public static int bagiBilangan(int a, int b) throws AdelException {       
+        if (b == 0) {
+            throw new AdelException("pembagian dengan nol ");
+        }
+        return a / b;
+    }
+    
     public static void main(String[] args) {
-        try {
-            throw new AdelException("ada kesalahan disini, coba lempar");
-        } catch (AdelException ex) {
-            System.out.println("coba tangkap kesalahan " + String.valueOf(ex));
+        // TODO code application logic here
+        try{
+            int result = bagiBilangan(5, 0);
+            System.out.println("hasil  " + result);
+        }catch (AdelException e){
+            System.out.println("coba tangkap kesalahan " + e.getMessage() );
         }
     }
 }
 </pre>
 Output : 
 <pre>
-  coba tangkap kesalahan pertemuankeempat.AdelException: ada kesalahan disini, coba lempar
+coba tangkap kesalahan pembagian dengan nol 
 </pre>
-Dalam kode ini kita buat kelas baru bernama AdelException yang merupakan turunan dari kelas Exception. Ini berarti AdelException adalah jenis kesalahan (exception) yang dapat kita buat sendiri. Kelas ini memiliki konstruktor yang menerima satu parameter bertipe String. Parameter ini digunakan untuk menyimpan pesan kesalahan yang akan ditampilkan saat exception ini terjadi. Kata kunci super(s) memanggil konstruktor dari kelas Exception untuk mengatur pesan kesalahan. <br>
-Buat metode main untuk mengeksekusi program, dimana dalam blok try, kita "melempar" atau throw sebuah objek AdelException dengan pesan "ada kesalahan disini, coba lempar". Ini menyebabkan exception terjadi. Setelah program dilempar, maka akan di tangkap oleh blok catch dan diikuti dengan informasi tentang exception yang ditangkap. 
+Dalam kode ini kita buat kelas baru bernama AdelException yang merupakan jenis kesalahan khusus untuk menangani pembagian dengan nol. Kelas ini mewarisi dari ArithmeticException yang berarti akan terjadi kesalahan aritmatika. Selanjutnya Buat metode bagiBilangan untuk melakukan operasi pembagian dua bilangan yaitu a / b. Jika b sama dengan nol maka metode ini akan melempar (throw) kesalahan AdelException dengan pesan "pembagian dengan nol". Namun, jika b tidak nol maka akan mengembalikan hasil nilai a / b. Kemudian Buat metode main untuk mengeksekusi program, dimana kita mencoba membagi 5 dengan 0, karena angka 5 dibagi dengan 0 maka kesalahan ini ditangkap dalam blok catch dan pesan kesalahan di tampilkan.
 
 
 
